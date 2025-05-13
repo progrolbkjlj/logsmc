@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>GrabMC Status</title>
+  </head>
+  <body>
+    <h1>Status serwera GrabMC</h1>
+    <p>Logi serwera (przykład):</p>
+    <div id="logi">Ładowanie logów...</div>
+
+    <script>
+      fetch("https://twojserwer.pl/logi.txt")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("logi").textContent = data;
+        })
+        .catch(() => {
+          document.getElementById("logi").textContent = "Błąd ładowania logów.";
+        });
+    </script>
+  </body>
+</html>
